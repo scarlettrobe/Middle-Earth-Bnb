@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('SpotImages', {
+    await queryInterface.createTable('Bookings', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -13,11 +13,18 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: { model: 'Spots', key: 'id' }
       },
-      url: Sequelize.STRING,
-      preview: {
+      userId: {
         allowNull: false,
-        defaultValue: false,
-        type: Sequelize.BOOLEAN
+        type: Sequelize.INTEGER,
+        references: { model: 'Users', key: 'id' }
+      },
+      startDate: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      endDate: {
+        allowNull: false,
+        type: Sequelize.DATE
       },
       createdAt: {
         allowNull: false,
@@ -32,6 +39,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('SpotImages');
+    await queryInterface.dropTable('Bookings');
   }
 };

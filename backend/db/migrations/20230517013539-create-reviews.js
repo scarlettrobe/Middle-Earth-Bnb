@@ -1,23 +1,30 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('SpotImages', {
+    await queryInterface.createTable('Reviews', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      userId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: { model: 'Users', key: 'id' }
+      },
       spotId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: { model: 'Spots', key: 'id' }
       },
-      url: Sequelize.STRING,
-      preview: {
+      review: {
         allowNull: false,
-        defaultValue: false,
-        type: Sequelize.BOOLEAN
+        type: Sequelize.STRING
+      },
+      stars: {
+        allowNull: false,
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -32,6 +39,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('SpotImages');
+    await queryInterface.dropTable('Reviews');
   }
 };
