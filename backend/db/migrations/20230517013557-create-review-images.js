@@ -16,11 +16,16 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       reviewId: {
-        allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: 'review', key: 'id' }
+        references: {
+          model: 'Reviews',
+          key: 'id'
+        },
+        onDelete: 'CASCADE'
       },
-      url: Sequelize.STRING,
+      url: {
+        type: Sequelize.TEXT
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -31,11 +36,10 @@ module.exports = {
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       }
-    });
+    }, options);
   },
   async down(queryInterface, Sequelize) {
     options.tableName = "ReviewImages"
-
-    await queryInterface.dropTable('ReviewImages');
+    await queryInterface.dropTable(options);
   }
 };
