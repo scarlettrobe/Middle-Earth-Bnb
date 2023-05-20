@@ -1,15 +1,16 @@
-
 'use strict';
 const bcrypt = require("bcryptjs");
+// test
 let options = {};
 if (process.env.NODE_ENV === 'production') {
   options.schema = process.env.SCHEMA;  // define your schema in options object
 }
 
 module.exports = {
-up: async (queryInterface, Sequelize) => {
-return queryInterface.bulkInsert('SpotImages', [
-{
+  up: async (queryInterface, Sequelize) => {
+    options.tableName = 'SpotImages';
+    return queryInterface.bulkInsert(options, [
+      {
 spotId: 1,
 url: 'https://s3.amazonaws.com/gs-geo-images/a3eda856-fd35-4af4-9b3a-cd0034e5854d_l.jpg',
 preview: false,
@@ -31,9 +32,11 @@ preview: false,
 },
 ], {});
 },
-
 down: async (queryInterface, Sequelize) => {
-return queryInterface.bulkDelete('SpotImages', null, {});
+  options.tableName = 'SpotImages';
+  const Op = Sequelize.Op;
+  return queryInterface.bulkDelete(options, {
+    spotId: { [Op.eq]: [1, 2] }
+  }, {});
 }
 };
-
