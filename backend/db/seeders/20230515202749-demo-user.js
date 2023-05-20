@@ -8,6 +8,9 @@ if (process.env.NODE_ENV === 'production') {
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
+    // Reset sequence before inserting
+    await queryInterface.sequelize.query('ALTER SEQUENCE "Users_id_seq" RESTART WITH 1');
+
     options.tableName = 'Users';
     return queryInterface.bulkInsert(options, [
       {
@@ -43,3 +46,5 @@ module.exports = {
     }, {});
   }
 };
+
+console.log(users);
