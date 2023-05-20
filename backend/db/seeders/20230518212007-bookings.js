@@ -8,6 +8,8 @@ if (process.env.NODE_ENV === 'production') {
 
 module.exports = {
 up: async (queryInterface, Sequelize) => {
+options.tableName = 'Bookings'
+
 return queryInterface.bulkInsert('Bookings', [
 {
 spotId: 1, // Alamo
@@ -31,8 +33,7 @@ endDate: '2023-07-05',
 },
 
 down: async (queryInterface, Sequelize) => {
+options.tableName = 'Bookings'
 return queryInterface.bulkDelete('Bookings', null, {});
 }
 };
-
-
