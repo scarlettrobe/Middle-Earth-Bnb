@@ -16,15 +16,20 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       spotId: {
-        allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: 'Spot', key: 'id' }
+        references: {
+          model: 'Spots',
+          key: 'id'
+        },
+        onDelete: 'CASCADE'
       },
-      url: Sequelize.STRING,
+      url: {
+        type: Sequelize.STRING
+      },
       preview: {
+        type: Sequelize.BOOLEAN,
         allowNull: false,
-        defaultValue: false,
-        type: Sequelize.BOOLEAN
+        defaultValue: false
       },
       createdAt: {
         allowNull: false,
@@ -36,11 +41,10 @@ module.exports = {
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       }
-    });
+    }, options);
   },
   async down(queryInterface, Sequelize) {
     options.tableName = "SpotImages"
-
-    await queryInterface.dropTable('SpotImages');
+    await queryInterface.dropTable(options);
   }
 };
