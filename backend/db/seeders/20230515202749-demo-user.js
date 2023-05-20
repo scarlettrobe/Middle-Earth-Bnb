@@ -8,8 +8,6 @@ if (process.env.NODE_ENV === 'production') {
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    // Reset sequence before inserting
-
     options.tableName = 'Users';
     return queryInterface.bulkInsert(options, [
       {
@@ -37,11 +35,11 @@ module.exports = {
     ], {});
   },
 
-  down: async (queryInterface, Sequelize) => {
-    options.tableName = 'Users';
-    const Op = Sequelize.Op;
-    return queryInterface.bulkDelete(options, {
-      username: { [Op.in]: ['scarlettrobe', 'Crybaby14', 'fableforge'] }
-    }, {});
-  }
+down: async (queryInterface, Sequelize) => {
+  options.tableName = 'Users';
+  const Op = Sequelize.Op;
+  return queryInterface.bulkDelete(options, {
+    username: { [Op.in]: ['scarlettrobe', 'Crybaby14', 'fableforge'] }
+  }, {});
+}
 };
