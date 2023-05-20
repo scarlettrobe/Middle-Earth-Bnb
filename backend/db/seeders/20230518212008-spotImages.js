@@ -32,11 +32,8 @@ preview: false,
 },
 ], {});
 },
+
 down: async (queryInterface, Sequelize) => {
-  options.tableName = 'SpotImages';
-  const Op = Sequelize.Op;
-  return queryInterface.bulkDelete(options, {
-    spotId: { [Op.eq]: [1, 2] }
-  }, {});
+return queryInterface.bulkDelete('SpotImages', null, {});
 }
 };
