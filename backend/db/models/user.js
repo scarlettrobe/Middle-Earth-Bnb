@@ -1,38 +1,58 @@
 'use strict';
 const { Model, Validator } = require('sequelize');
-// test
+
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-      User.hasMany(
-        models.Spot,
-          {
-          foreignKey: 'ownerId',
-          onDelete: 'CASCADE',
-        }
-      );
-      User.hasMany(
-        models.Review,
-          { foreignKey: 'userId' }
-      );
-      User.hasMany(
-        models.Booking,
-          { foreignKey: 'userId' }
-      );
+      // define association here
+      User.hasMany(models.Spot, {
+        foreignKey: 'ownerId',
+        onDelete: 'CASCADE',
+        hooks: true
+      })
+
+      User.belongsToMany(models.Spot, {
+        through: models.Booking,
+        foreignKey: 'userId',
+        otherKey: 'spotId'
+      })
+
+      User.belongsToMany(models.Spot, {
+        through: models.Review,
+        foreignKey: 'userId',
+        otherKey: 'spotId'
+      })
+
+      User.hasMany(models.Review, {
+        foreignKey: 'userId',
+        onDelete: 'CASCADE',
+        hooks: true
+      })
+
+      User.hasMany(models.Booking, { foreignKey: 'userId' })
     }
   };
 
   User.init(
     {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: DataTypes.INTEGER
+      },
       firstName: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false,
       },
       lastName: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false,
       },
       username: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
         validate: {
           len: [4, 30],
           isNotEmail(value) {
@@ -45,6 +65,7 @@ module.exports = (sequelize, DataTypes) => {
       email: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true,
         validate: {
           len: [3, 256],
           isEmail: true
