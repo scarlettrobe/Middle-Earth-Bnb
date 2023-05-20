@@ -18,7 +18,7 @@ module.exports = {
       reviewId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: 'Reviews', key: 'id' }
+        references: { model: 'review', key: 'id' }
       },
       url: Sequelize.STRING,
       createdAt: {
