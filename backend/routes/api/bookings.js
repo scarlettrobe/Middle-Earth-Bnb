@@ -33,18 +33,17 @@ router.get('/current', requireAuth, async (req, res, next) => {
     if (bookings) { 
         for (let booking of bookings) {
             booking = booking.toJSON();
-            for (let image of booking.Spot.SpotImages) {
-                if (image.preview === true) {
-                    booking.Spot.previewImage = image.url
-                }
+            let previewImage = booking.Spot.SpotImages.find(image => image.preview === true);
+            if (previewImage) {
+                booking.Spot.previewImage = previewImage.url;
             }
-            delete booking.Spot.SpotImages;  //delete SpotImages after extracting previewImage
+            delete booking.Spot.SpotImages;
             Bookings.push(booking);
         }
     }
 
     res.json({ Bookings });
-})
+});
 
 
 //edit a booking
