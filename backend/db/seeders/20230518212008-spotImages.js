@@ -33,7 +33,7 @@ module.exports = {
       {
         spotId: 2,
         url: 'https://www.greenbuilt.org/images/SamselCabin4.jpg',
-        preview: false,
+        preview: true,
       },
       {
         spotId: 3,
