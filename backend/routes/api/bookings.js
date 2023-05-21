@@ -10,7 +10,7 @@ const { Op } = require('sequelize')
 router.get('/current', requireAuth, async (req, res, next) => {
     const { user } = req;
     let bookings = await Booking.findAll({
-        attributes: ['id', 'spotId'],
+        attributes: ['id', 'spotId', 'userId', 'startDate', 'endDate', 'createdAt', 'updatedAt'],
         where: {
             userId: user.id
         },
@@ -30,26 +30,22 @@ router.get('/current', requireAuth, async (req, res, next) => {
 
     let Bookings = []
 
-    if (bookings) { //turn each booking into a json object
+    if (bookings) { 
         for (let booking of bookings) {
-            booking = booking.toJSON()
-            Bookings.push(booking)
-        }
-    }
-
-    for (let booking of Bookings) {
-        for (let image of booking.Spot.SpotImages) { //now we want to extract the image that is the preview image
-            if (image.preview === true) {
-                booking.Spot.previewImage = image.url
-                delete booking.Spot.SpotImages
+            booking = booking.toJSON();
+            for (let image of booking.Spot.SpotImages) {
+                if (image.preview === true) {
+                    booking.Spot.previewImage = image.url
+                }
             }
+            delete booking.Spot.SpotImages;  //delete SpotImages after extracting previewImage
+            Bookings.push(booking);
         }
     }
 
-
-
-    res.json({ Bookings })
+    res.json({ Bookings });
 })
+
 
 //edit a booking
 
