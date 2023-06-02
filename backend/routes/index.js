@@ -18,3 +18,8 @@ router.use('/api', apiRouter);
 
 
 module.exports = router;
+
+
+
+
+//testing if push works
