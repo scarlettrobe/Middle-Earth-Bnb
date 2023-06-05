@@ -25,7 +25,7 @@ module.exports = {
         url: 'https://independenttravelcats.com/wp-content/uploads/2019/01/unnamed-file.jpg',
       },
       {
-        reviewId: 3, //Basecamp Terlingua 
+        reviewId: 3, //Bilbos Rivendale home
         url: 'https://places.travel/wp-content/uploads/2020/06/Bubble-milky-way.jpg',
       },
     ], {});

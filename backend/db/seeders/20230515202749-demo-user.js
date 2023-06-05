@@ -18,11 +18,11 @@ module.exports = {
         hashedPassword: bcrypt.hashSync('123456', 10)
       },
       {
-        firstName: 'Melanie',
-        lastName: 'Martinez',
-        email: 'plutodestroy@user.io',
-        username: 'Crybaby14',
-        hashedPassword: bcrypt.hashSync('portals2', 10)
+        firstName: 'Bilbo',
+        lastName: 'Baggins',
+        email: 'bilbo@user.io',
+        username: 'burglar',
+        hashedPassword: bcrypt.hashSync('shire123', 10),
       },
       {
         firstName: 'Andrew',

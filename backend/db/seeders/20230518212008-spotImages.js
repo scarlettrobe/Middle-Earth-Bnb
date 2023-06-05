@@ -32,12 +32,12 @@ module.exports = {
       },
       {
         spotId: 2,
-        url: 'https://www.greenbuilt.org/images/SamselCabin4.jpg',
+        url: 'https://www.greenbuihttps://static.wikia.nocookie.net/lotr/images/0/08/Hobbit-hole_%28LOTR%29_1.jpg/revision/latest/scale-to-width-down/700?cb=20220912195025lt.org/images/SamselCabin4.jpg',
         preview: true,
       },
       {
         spotId: 3,
-        url: 'https://basecampterlingua.com/wp-content/uploads/2020/08/Basecamp-bubble-4-2-768x512.jpg',
+        url: 'htthttps://cdn.pixabay.com/photo/2021/05/26/18/36/hobbit-holes-6286046_1280.jpgps://basecampterlingua.com/wp-content/uploads/2020/08/Basecamp-bubble-4-2-768x512.jpg',
         preview: false,
       },
     ], {});
