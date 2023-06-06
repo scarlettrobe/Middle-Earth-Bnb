@@ -22,21 +22,21 @@ module.exports = {
         return queryInterface.bulkInsert(options, [
             {
 
-        spotId: 1, // Alamo
+        spotId: 1, //  Bilbos Hobbit Hole
         userId: 2,
-        review: 'Sleeping in the Alamo was kinda dated, I expected it to be more modern for some reason. Very dusty, would not stay again',
-        stars: 2,
+        review: 'Food was great, but everything was a bit cramped.',
+        stars: 3,
       },
       {
-        spotId: 2, //Cabin in the Woods
+        spotId: 2, //Bilbows Rivendell home
         userId: 1,
-        review: 'Some people kept knocking at our door asking us to help them save the world. Super scary. Will be booking again',
+        review: 'Was a lovely time! There was quite a bit to explore outside, and the bed was comfortable.',
         stars: 5,
       },
       {
-        spotId: 3, //Basecamp Terlingua
+        spotId: 3, //Wizard Tower
         userId: 2,
-        review: 'The stars were beautiful',
+        review: 'The stars and fireworks were beautiful',
         stars: 4,
       },
     ], {});

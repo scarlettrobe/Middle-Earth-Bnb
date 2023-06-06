@@ -2,11 +2,11 @@ import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import "./SpotShow.css"
+import "./SpotList.css"
 
 //here we need to get the users with the review.userId
 
-export const SpotShowReview = ({ review }) => {
+export const SpotListReview = ({ review }) => {
     return (
         <>
             <div className='single-review'>

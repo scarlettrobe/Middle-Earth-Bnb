@@ -33,7 +33,7 @@ module.exports = {
       },
       {
         ownerId: 1, // Bilbo's second home
-        address: 'Rivendell',
+        address: '100 Water Way',
         city: 'Rivendell',
         state: 'Rivendell',
         country: 'Middle Earth',
@@ -69,6 +69,19 @@ module.exports = {
         description: "Spend time in nature and get away from the noise of the city",
         price: 105,
       },
+      {
+        ownerId: 3, // Gandalf
+        address: '101 Wizard Ln',
+        city: 'Valinor',
+        state: 'Middle Earth',
+        country: 'Arda',
+        lat: 29.4360,
+        lng: 98.4661,
+        name: 'Gandalf\'s Wizards Tower',
+        description: 'A place full of mystery and magic.',
+        price: 500,
+      },
+
 
     ], {});
   },

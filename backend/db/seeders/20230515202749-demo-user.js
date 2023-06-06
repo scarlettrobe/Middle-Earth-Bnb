@@ -25,11 +25,11 @@ module.exports = {
         hashedPassword: bcrypt.hashSync('123456', 10)
       },
       {
-        firstName: 'Andrew',
-        lastName: 'Sliva',
-        email: 'buymygame@user.io',
-        username: 'fableforge',
-        hashedPassword: bcrypt.hashSync('Voxelcube12', 10)
+        firstName: 'Gandalf',
+        lastName: 'the Grey',
+        email: 'gandalf@user.io',
+        username: 'greywizard',
+        hashedPassword: bcrypt.hashSync('gandalfthewhite', 10)
       },
 
     ], {});
