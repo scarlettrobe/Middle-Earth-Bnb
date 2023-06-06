@@ -49,7 +49,11 @@ export const SpotList = () => {
           <div className="images">
             <img id="image" src={spot.SpotImages[0]?.url} alt="Spot" />
             <div className="grid-images">
-              <img className="small-image" src={spot.SpotImages[1]?.url} alt="Spot"/>
+              <img className="small-image" src={spot.SpotImages[1]?.url || 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/495px-No-Image-Placeholder.svg.png?20200912122019'} alt="Spot"/>
+              <img className="small-image" src={spot.SpotImages[2]?.url || 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/495px-No-Image-Placeholder.svg.png?20200912122019'} alt="Spot"/>
+              <img className="small-image" src={spot.SpotImages[3]?.url || 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/495px-No-Image-Placeholder.svg.png?20200912122019'} alt="Spot"/>
+              <img className="small-image" src={spot.SpotImages[4]?.url || 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/495px-No-Image-Placeholder.svg.png?20200912122019'} alt="Spot"/>
+
             </div>
           </div>
         </div>
