@@ -20,25 +20,26 @@ module.exports = {
     */
 
     return queryInterface.bulkInsert(options, [
+
       {
         spotId: 1,
-        url: 'https://s3.amazonaws.com/gs-geo-images/a3eda856-fd35-4af4-9b3a-cd0034e5854d_l.jpg',
+        url: 'https://images.unsplash.com/photo-1535666669445-e8c15cd2e7d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
         preview: false,
       },
       {
         spotId: 1,
-        url: 'https://en.wikipedia.org/wiki/File:1854_Alamo.jpg',
-        preview: false,
+        url: 'https://images.unsplash.com/photo-1655962982870-445478528359?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=435&q=80',
+        preview: true,
       },
       {
         spotId: 2,
-        url: 'https://www.greenbuihttps://static.wikia.nocookie.net/lotr/images/0/08/Hobbit-hole_%28LOTR%29_1.jpg/revision/latest/scale-to-width-down/700?cb=20220912195025lt.org/images/SamselCabin4.jpg',
+        url: '',
         preview: true,
       },
       {
         spotId: 3,
-        url: 'htthttps://cdn.pixabay.com/photo/2021/05/26/18/36/hobbit-holes-6286046_1280.jpgps://basecampterlingua.com/wp-content/uploads/2020/08/Basecamp-bubble-4-2-768x512.jpg',
-        preview: false,
+        url: 'https://images.unsplash.com/photo-1655962982870-445478528359?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80',
+        preview: true,
       },
     ], {});
   },

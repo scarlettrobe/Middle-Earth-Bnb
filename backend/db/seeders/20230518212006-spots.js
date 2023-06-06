@@ -20,8 +20,32 @@ module.exports = {
     */
     return queryInterface.bulkInsert(options, [
       {
+        ownerId: 1, // Bilbo
+        address: 'Bag End',
+        city: 'Hobbiton',
+        state: 'The Shire',
+        country: 'Middle Earth',
+        lat: 35.34234234,
+        lng: -55.345345,
+        name: 'Bilbo\'s Hobbit Hole',
+        description: 'A quaint and cozy hobbit hole.',
+        price: 75,
+      },
+      {
+        ownerId: 1, // Bilbo's second home
+        address: 'Rivendell',
+        city: 'Rivendell',
+        state: 'Rivendell',
+        country: 'Middle Earth',
+        lat: 36.34234234,
+        lng: -56.345345,
+        name: 'Bilbo\'s Rivendell Retreat',
+        description: 'A tranquil refuge in the elven city.',
+        price: 100,
+      },
+      {
 
-        ownerId: 1,
+        ownerId: 2,
         address: '300 Alamo Plaza',
         city: 'San Antonio',
         state: 'Texas',
@@ -34,7 +58,7 @@ module.exports = {
 
       },
       {
-        ownerId: 1,
+        ownerId: 2,
         address: '245 wallabe way',
         city: 'Austin',
         state: 'Texas',
@@ -45,30 +69,7 @@ module.exports = {
         description: "Spend time in nature and get away from the noise of the city",
         price: 105,
       },
-      {
-        ownerId: 2, // Bilbo
-        address: 'Bag End',
-        city: 'Hobbiton',
-        state: 'The Shire',
-        country: 'Middle Earth',
-        lat: 35.34234234,
-        lng: -55.345345,
-        name: 'Bilbo\'s Hobbit Hole',
-        description: 'A quaint and cozy hobbit hole.',
-        price: 75,
-      },
-      {
-        ownerId: 2, // Bilbo's second home
-        address: 'Rivendell',
-        city: 'Rivendell',
-        state: 'Rivendell',
-        country: 'Middle Earth',
-        lat: 36.34234234,
-        lng: -56.345345,
-        name: 'Bilbo\'s Rivendell Retreat',
-        description: 'A tranquil refuge in the elven city.',
-        price: 100,
-      },
+
     ], {});
   },
   async down(queryInterface, Sequelize) {

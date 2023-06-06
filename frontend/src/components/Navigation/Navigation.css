@@ -1,3 +1,26 @@
-.hidden {
-    display: none;
-}
+ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  ul li img {
+    height: 125px; /* adjust as needed */
+    width: 225px;  /* adjust as needed */
+  }
+  
+  .navigation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  .profile-button-container {
+    margin-left: auto;
+  }
+  

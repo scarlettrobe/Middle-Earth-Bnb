@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/scarlettrobe/Authenicate-me#readme",
   "dependencies": {
-    "js-cookie": "^3.0.5"
+    "js-cookie": "^3.0.5",
+    "react-router-dom": "^6.11.2"
   }
 }

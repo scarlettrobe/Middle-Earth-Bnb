@@ -1,12 +1,20 @@
 
-const LOAD_SPOTS = 'spots/LOAD_SPOTS'
+export const LOAD_SPOTS = 'spots/LOAD_SPOTS'
+export const RECEIVE_SPOT = 'spots/RECEIVE_SPOT'
 
 //Action creator for loading spots
 export const loadSpots = (spots) => {
-    console.log("spots: ", spots)
     return ({
         type: LOAD_SPOTS,
         spots
+    })
+}
+
+export const receiveSpots = (spot) => {
+
+    return ({
+        type: RECEIVE_SPOT,
+        spot
     })
 }
 
@@ -17,22 +25,34 @@ export const getAllSpots = () => async (dispatch) => {
     if (response.ok) {
         const data = await response.json()
         dispatch(loadSpots(data))
-        console.log("data: ", data)
         return data //check if this is necessary
+    }
+}
+
+export const getSingleSpot = (spotId) => async (dispatch) => {
+    const response = await fetch(`/api/spots/${spotId}`)
+
+    if (response.ok) {
+        const data = await response.json()
+        dispatch(receiveSpots(data))
+        return data
+    } else {
+        console.log("error in getting spot")
     }
 }
 
 //reducer
 export const spotsReducer = (state = {}, action) => {
-    console.log("we are in spots reducer ! ")
     switch (action.type) {
         case LOAD_SPOTS: {
             const newState = {};
             action.spots.Spots.forEach((spot) => {
                 newState[spot.id] = spot;
             })
-            console.log("newState after reducer: ", newState)
             return newState;
+        }
+        case RECEIVE_SPOT: {
+            return { [action.spot.id]: action.spot }
         }
         default:
             return state
