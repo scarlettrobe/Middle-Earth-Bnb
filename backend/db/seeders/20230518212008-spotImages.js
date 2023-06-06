@@ -44,11 +44,6 @@ module.exports = {
       {
         spotId: 2,
         url: 'https://images.unsplash.com/photo-1624397925870-19a96f27d9dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
-        preview: false,
-      },
-      {
-        spotId: 2,
-        url: 'https://static.wikia.nocookie.net/lotr/images/7/70/Jerry_Vanderstelt_-_Rivendell.jpg/revision/latest/scale-to-width-down/700?cb=20180501204919',
         preview: true,
       },
       {
