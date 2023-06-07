@@ -1,30 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import SpotHandle from './SpotHandle';
 
-const SpotTile = ({ spot, fetchSpots }) => {
-  const handleUpdate = () => {
-    // navigate to the update form
-  }
+const SpotManage = () => {
+  const [spots, setSpots] = useState([]);
 
-  const handleDelete = async () => {
-    const res = await fetch(`/api/spots/${spot.id}`, { method: 'DELETE' });
-    if (res.ok) {
-      // refresh the spots
-      fetchSpots();
-    } else {
-      console.error('Failed to delete spot');
-    }
+  useEffect(() => {
+    fetchSpots();
+  }, []);
+
+  const fetchSpots = async () => {
+    // fetch the spots from the backend
+    const res = await fetch('/api/spots');
+    const data = await res.json();
+    setSpots(data);
   }
 
   return (
     <div>
-      <img src={spot.image} alt={spot.location} />
-      <p>{spot.location}</p>
-      <p>{spot.rating}</p>
-      <p>{spot.price}</p>
-      <button onClick={handleUpdate}>Update</button>
-      <button onClick={handleDelete}>Delete</button>
+      <h1>Manage Spots</h1>
+      {spots.length > 0 
+        ? spots.map(spot => <SpotHandle key={spot.id} spot={spot} fetchSpots={fetchSpots} />)
+        : <p>No spots found. <a href="/new-spot">Create a New Spot</a></p>}
     </div>
   );
 }
 
-export default SpotTile;
+export default SpotManage;
