@@ -24,7 +24,7 @@ function App() {
         <Route exact path="/spots/:spotId">
           <SpotList/>
         </Route>
-        <Route path="/manage-spots">
+        <Route path="/current">
           <SpotManage />
         </Route>
       </Switch>}

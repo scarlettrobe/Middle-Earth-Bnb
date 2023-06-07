@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import SpotHandle from './SpotHandle';
+import {SpotHandle} from './SpotHandle';
 
 const SpotManage = () => {
   const [spots, setSpots] = useState([]);
