@@ -17,7 +17,7 @@ export const SpotIndexItem = ({ spot }) => {
                     <h2 className='title-spots'>{spot.name}</h2>
                     <div className='price-stars'>
                         <p>{`${spot.city}, ${spot.state}`}</p>
-                        <p> <i class="fa-solid fa-heart"></i> {`${spot.avgRating ? spot.avgRating : "New"}`}</p>
+                        <p> <i className="fa-solid fa-heart"></i> {`${spot.avgRating ? spot.avgRating : "New"}`}</p>
                     </div>
                     <p className='price-spots'>{`$${spot.price} night`}</p>
                 </div>
