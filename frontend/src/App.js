@@ -5,7 +5,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import { SpotIndex } from "./components/Spots/SpotIndex";
 import { SpotList } from "./components/Spots/SpotList";
-import SpotManage from "./components/Spots/SpotManage";
+import { CurrentSpots } from "./components/Spots/CurrentSpots";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ function App() {
           <SpotList/>
         </Route>
         <Route path="/current">
-          <SpotManage />
+          <CurrentSpots />
         </Route>
       </Switch>}
     </>
