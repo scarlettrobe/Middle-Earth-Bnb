@@ -357,7 +357,7 @@ router.put('/:spotId', requireAuth, validateSpot, async (req, res, next) => {
     res.json(spotToEdit)
 })
 
-router.delete(':spotId', requireAuth, async (req, res) => {
+router.delete('/:spotId', requireAuth, async (req, res) => {
     const { user } = req
     const id = req.params.spotId
     let spot = await Spot.findByPk(id)

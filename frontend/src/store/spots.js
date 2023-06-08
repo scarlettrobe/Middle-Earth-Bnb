@@ -97,7 +97,9 @@ export const modifySpot = (spotId, spotData) => async (dispatch) => {
         dispatch(updateSpot(data))
         return data
     } else {
-        console.log("error in updating spot")
+        const data = await response.json();
+        console.log("Error in updating spot:", data);
+        throw new Error(data.message || "Error in updating spot");
     }
 }
 
