@@ -6,6 +6,7 @@ import Navigation from "./components/Navigation";
 import { SpotIndex } from "./components/Spots/SpotIndex";
 import { SpotList } from "./components/Spots/SpotList";
 import { CurrentSpots } from "./components/Spots/CurrentSpots";
+import { UpdateSpot } from "./components/Spots/UpdateSpot";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,10 +23,13 @@ function App() {
           <SpotIndex />
         </Route>
         <Route exact path="/spots/:spotId">
-          <SpotList/>
+          <SpotList />
         </Route>
         <Route path="/current">
           <CurrentSpots />
+        </Route>
+        <Route path="/spots/:id/edit" exact>
+          <UpdateSpot />
         </Route>
       </Switch>}
     </>
