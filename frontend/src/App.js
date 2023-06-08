@@ -31,6 +31,10 @@ function App() {
         <Route path="/spots/:id/edit" exact>
           <UpdateSpot />
         </Route>
+        <Route path="/spots/new">
+          <CreateSpot />
+        </Route>
+
       </Switch>}
     </>
   );
