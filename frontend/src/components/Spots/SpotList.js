@@ -37,6 +37,7 @@ export const SpotList = () => {
   }
 
   const reviewArray = review ? Object.values(review) : [];
+  const avgStarRating = spot?.avgStarRating || 0; // Add null check and fallback value
 
   return (
     <div className="single-spot-body">
@@ -69,7 +70,7 @@ export const SpotList = () => {
                 <div className="top-right-reserve">
                   <div className="rating">
                     <i className="fa-solid fa-heart"></i>
-                    <p>{`${spot.avgStarRating.toFixed(2)} -`}</p>
+                    <p>{`${avgStarRating.toFixed(2)} -`}</p> {/* Use avgStarRating with null check */}
                   </div>
                   <p>{`${spot.numReviews} reviews`}</p>
                 </div>
@@ -85,7 +86,7 @@ export const SpotList = () => {
               <div className="top-reviews">
                 <div className="rating">
                   <i className="fa-solid fa-heart"></i>
-                  <h2>{`${spot.avgStarRating.toFixed(2)} -`}</h2>
+                  <h2>{`${avgStarRating.toFixed(2)} -`}</h2> {/* Use avgStarRating with null check */}
                 </div>
                 <h2>{`${spot.numReviews} reviews`}</h2>
               </div>
@@ -96,7 +97,7 @@ export const SpotList = () => {
               <div className="top-reviews">
                 <div className="rating">
                   <i className="fa-solid fa-heart"></i>
-                  <h2>{`${spot.avgStarRating.toFixed(2)} -`}</h2>
+                  <h2>{`${avgStarRating.toFixed(2)} -`}</h2> {/* Use avgStarRating with null check */}
                 </div>
                 <h2>{`${spot.numReviews} reviews`}</h2>
               </div>

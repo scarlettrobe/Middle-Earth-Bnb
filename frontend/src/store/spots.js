@@ -6,10 +6,9 @@ export const RECEIVE_SPOT = 'spots/RECEIVE_SPOT'
 export const GET_CURRENT_SPOTS = 'spots/GET_CURRENT_SPOTS'
 export const UPDATE_SPOT = 'spots/UPDATE_SPOT';
 export const DELETE_SPOT = 'spots/DELETE_SPOT';
-export const ADD_SPOT = 'spots/ADD_SPOT';
-export const ADD_SPOT_IMAGE = 'spots/ADD_SPOT_IMAGE';
-export const RESET_CURRENT_USER_SPOTS = 'spots/RESET_CURRENT_USER_SPOTS';
-
+const ADD_SPOT = 'spots/ADD_SPOT';
+const ADD_IMAGES = 'spots/ADD_IMAGES';
+const RESET_SPOTS = 'spots/RESET_SPOTS';
 
 
 //Action creator for loading spots
@@ -36,6 +35,20 @@ export const userSpots = (spots) => {
     })
 }
 
+const addSpot = (spot) => ({
+    type: ADD_SPOT,
+    spot,
+  });
+  
+  const addImages = (images) => ({
+    type: ADD_IMAGES,
+    images,
+  });
+  
+  const resetSpots = () => ({
+    type: RESET_SPOTS,
+  });
+
 export const updateSpot = (spot) => {
     return ({
         type: UPDATE_SPOT,
@@ -43,27 +56,12 @@ export const updateSpot = (spot) => {
     })
 }
 
-
 export const deleteSpot = (spotId) => {
     return ({
         type: DELETE_SPOT,
         spotId
     })
 }
-
-export const addSpot = (spot) => ({
-    type: ADD_SPOT,
-    spot
-});
-
-export const addSpotImage = (image) => ({
-    type: ADD_SPOT_IMAGE,
-    image
-});
-
-export const resetCurrentUserSpots = () => ({
-    type: RESET_CURRENT_USER_SPOTS
-});
 
 //thunk action creators
 export const getAllSpots = () => async (dispatch) => {
@@ -134,45 +132,35 @@ export const removeSpot = (spotId) => async (dispatch) => {
     }
 }
 
-export const createSpot = (spot) => async (dispatch) => {
-    const response = await csrfFetch('/api/spots', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(spot)
+export const createSpot = (spotData) => async (dispatch) => {
+    const response = await csrfFetch('/api/spots', { // Update the URL based on your API endpoint
+      method: 'POST',
+      body: JSON.stringify(spotData),
     });
-
+  
     if (response.ok) {
-        const data = await response.json();
-        dispatch(addSpot(data.spot));
-        return data;
-    } else {
-        const data = await response.json();
-        console.log("Error in creating spot:", data);
-        throw new Error(data.message || "Error in creating spot");
+      const spot = await response.json();
+      dispatch(addSpot(spot));
+      return spot;
     }
-};
-
-export const createSpotImage = (image, spotId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/spots/${spotId}/images`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(image)
+  };
+  
+  export const addSpotImages = (spotId, imageUrls) => async (dispatch) => {
+    const response = await csrfFetch(`/api/spots/${spotId}/images`, { // Update the URL based on your API endpoint
+      method: 'POST',
+      body: JSON.stringify(imageUrls),
     });
-
+  
     if (response.ok) {
-        const data = await response.json();
-        dispatch(addSpotImage(data.image));
-        return data;
-    } else {
-        const data = await response.json();
-        console.log("Error in creating spot image:", data);
-        throw new Error(data.message || "Error in creating spot image");
+      const images = await response.json();
+      dispatch(addImages(images));
     }
-};
+  };
+  
+  export const resetCurrentUserSpots = () => (dispatch) => {
+    dispatch(resetSpots());
+  };
 
-export const clearCurrentUserSpots = () => async (dispatch) => {
-    dispatch(resetCurrentUserSpots());
-};
 
 //reducer
 export const spotsReducer = (state = {}, action) => {
@@ -195,7 +183,7 @@ export const spotsReducer = (state = {}, action) => {
             action.spots.Spots.forEach((spot) => {
                 newState.currentUserSpots[spot.id] = spot;
             });
-            return newState
+            return newState;
         }
         case DELETE_SPOT: {
             let newState = { ...state };
@@ -203,17 +191,21 @@ export const spotsReducer = (state = {}, action) => {
             return newState;
         }
         case ADD_SPOT: {
-            return { ...state, [action.spot.id]: action.spot };
+            return { ...state, [action.spot.id]: action.spot }
         }
-        case ADD_SPOT_IMAGE: {
-            const newState = { ...state };
-            newState[action.image.spotId].images.push(action.image);
+        case ADD_IMAGES: {
+            let newState = { ...state };
+            if(newState[action.images.spotId]){
+                newState[action.images.spotId].images = action.images;
+            }
             return newState;
         }
-        case RESET_CURRENT_USER_SPOTS: {
-            return { ...state, currentUserSpots: {} };
+        case RESET_SPOTS: {
+            let newState = { ...state };
+            newState.currentUserSpots = {};
+            return newState;
         }
         default:
             return state;
     }
-};
+}
