@@ -5,17 +5,18 @@ import { useEffect, useState } from 'react';
 import { getSingleSpot } from '../../store/spots';
 import { getAllReviews } from '../../store/reviews';
 import { SpotListReview } from './SpotListReview';
+import CreateReview from '../Reviews/CreateReview'; // Add this line to import the review creation component
 import "./SpotList.css";
 
 export const SpotList = () => {
   const { spotId } = useParams();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
+  const [showCreateReview, setShowCreateReview] = useState(false); // Add this line to control visibility of review creation form
   const spot = useSelector(state => state.spots[spotId]);
   const review = useSelector(state => state.review);
   const user = useSelector(state => state.session.user);
 
-  // This hook runs when the component is mounted and whenever dispatch or spotId changes
   useEffect(() => {
     (async () => {
       await dispatch(getSingleSpot(spotId));
@@ -28,6 +29,10 @@ export const SpotList = () => {
     alert('Feature coming soon');
   };
 
+  const handlePostReviewClick = () => {
+    setShowCreateReview(true); // Show the review creation form when the button is clicked
+  };
+
   if (loading) {
     return <div className="loading">Loading...</div>;
   }
@@ -37,7 +42,7 @@ export const SpotList = () => {
   }
 
   const reviewArray = review ? Object.values(review) : [];
-  const avgStarRating = spot?.avgStarRating || 0; // Add null check and fallback value
+  const avgStarRating = spot?.avgStarRating || 0;
 
   return (
     <div className="single-spot-body">
@@ -54,7 +59,6 @@ export const SpotList = () => {
               <img className="small-image" src={spot.SpotImages[2]?.url || 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/495px-No-Image-Placeholder.svg.png?20200912122019'} alt="Spot"/>
               <img className="small-image" src={spot.SpotImages[3]?.url || 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/495px-No-Image-Placeholder.svg.png?20200912122019'} alt="Spot"/>
               <img className="small-image" src={spot.SpotImages[4]?.url || 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/495px-No-Image-Placeholder.svg.png?20200912122019'} alt="Spot"/>
-
             </div>
           </div>
         </div>
@@ -70,7 +74,7 @@ export const SpotList = () => {
                 <div className="top-right-reserve">
                   <div className="rating">
                     <i className="fa-solid fa-heart"></i>
-                    <p>{`${avgStarRating.toFixed(2)} -`}</p> {/* Use avgStarRating with null check */}
+                    <p>{`${avgStarRating.toFixed(2)} -`}</p>
                   </div>
                   <p>{`${spot.numReviews} reviews`}</p>
                 </div>
@@ -86,18 +90,22 @@ export const SpotList = () => {
               <div className="top-reviews">
                 <div className="rating">
                   <i className="fa-solid fa-heart"></i>
-                  <h2>{`${avgStarRating.toFixed(2)} -`}</h2> {/* Use avgStarRating with null check */}
+                  <h2>{`${avgStarRating.toFixed(2)} -`}</h2>
                 </div>
                 <h2>{`${spot.numReviews} reviews`}</h2>
               </div>
-              <button className="review-button" type="button">Post Your Review</button>
+              {showCreateReview ? (
+                <CreateReview spot={spot} user={user} spotId={spotId} />
+              ) : (
+                <button className="review-button" type="button" onClick={handlePostReviewClick}>Post Your Review</button>
+              )}
             </>
           ) : (
             <>
               <div className="top-reviews">
                 <div className="rating">
                   <i className="fa-solid fa-heart"></i>
-                  <h2>{`${avgStarRating.toFixed(2)} -`}</h2> {/* Use avgStarRating with null check */}
+                  <h2>{`${avgStarRating.toFixed(2)} -`}</h2>
                 </div>
                 <h2>{`${spot.numReviews} reviews`}</h2>
               </div>
