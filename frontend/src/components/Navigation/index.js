@@ -25,7 +25,7 @@ function Navigation({ isLoaded }) {
 
                     <li className='navLi'>
                         <div className='nav-top-right'>
-                            {sessionUser ? (<Link className="create-spot-text" to='/spots/new'>Create a Spot</Link>) : null}
+                            {sessionUser ? (<Link className="create-spot-text" to='/spots/new'>Create a New Spot</Link>) : null}
                             <ProfileButton user={sessionUser} />
                         </div>
                     </li>

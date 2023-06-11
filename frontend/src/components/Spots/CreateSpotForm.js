@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { createSpot, addSpotImages, resetCurrentUserSpots } from '../../store/spots';
+import './CreateSpotForm.css';
 
 function CreateSpotForm() {
   const [country, setCountry] = useState('');
@@ -90,6 +91,7 @@ function CreateSpotForm() {
 
   return (
     <form onSubmit={handleSubmit}>
+            <div className="create-spot-form">
       <h1>Create a New Spot</h1>
       <h2>Where's your place located?</h2>
       <p>Guests will only get your exact address once they booked a reservation.</p>
@@ -103,7 +105,6 @@ function CreateSpotForm() {
       {submitted && errors.state && <span className="error">{errors.state}</span>}
       <input type="number" placeholder="Latitude" value={lat} onChange={(e) => setLat(e.target.value)} />
       <input type="number" placeholder="Longitude" value={lng} onChange={(e) => setLng(e.target.value)} />
-
       <h2>Describe your place to guests</h2>
       <p>Mention the best features of your space, any special amenities like fast wifi or parking, and what you love about the neighborhood.</p>
       <textarea placeholder="Please write at least 30 characters" value={description} onChange={(e) => setDescription(e.target.value)} />
@@ -133,6 +134,7 @@ function CreateSpotForm() {
       {submitted && errors.imageUrl4 && <span className="error">{errors.imageUrl4}</span>}
 
       <button type="submit">Create Spot</button>
+      </div>
     </form>
   );
 }

@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import OpenModalMenuItem from './OpenModalMenuItem';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
+import './Navigation.css';
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -49,7 +50,7 @@ function ProfileButton({ user }) {
         {user ? (
             <>
             <li>{user.username}</li>
-            <li>{user.firstName} {user.lastName}</li>
+            <li id="username">{user.firstName} {user.lastName}</li>
             <li>{user.email}</li>
             <li>
               <NavLink to="/current">Manage Spots</NavLink>
