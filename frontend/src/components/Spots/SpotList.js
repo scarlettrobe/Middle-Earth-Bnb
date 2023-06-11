@@ -7,6 +7,7 @@ import { getAllReviews } from '../../store/reviews';
 import { SpotListReview } from './SpotListReview';
 import CreateReview from '../Reviews/CreateReview'; // Add this line to import the review creation component
 import "./SpotList.css";
+import OpenModalButton from '../OpenModalButton';
 
 export const SpotList = () => {
   const { spotId } = useParams();
@@ -97,7 +98,7 @@ export const SpotList = () => {
               {showCreateReview ? (
                 <CreateReview spot={spot} user={user} spotId={spotId} />
               ) : (
-                <button className="review-button" type="button" onClick={handlePostReviewClick}>Post Your Review</button>
+                <OpenModalButton buttonText={'Post Review'} modalComponent={<CreateReview spot={spot} user={user} /> } />
               )}
             </>
           ) : (

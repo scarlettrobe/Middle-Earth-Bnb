@@ -1,5 +1,5 @@
 #modal-content{
-    height: 15rem;
+    height: 20rem;
     width: 40rem;
 }
 
@@ -24,3 +24,9 @@ justify-content: center;
     display: flex;
     justify-content: center;
 }
+
+.review-button{
+    width: 11rem;
+}
+
+

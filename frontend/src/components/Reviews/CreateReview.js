@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import {getSingleSpot } from "../../store/spots";
 import { createReview } from "../../store/reviews";
 import { useModal } from "../../context/Modal";
+import "./Review.css";
 
 const CreateReview = ({ spot, user }) => {
   const [stars, setstars] = useState(1);
@@ -58,7 +59,7 @@ const CreateReview = ({ spot, user }) => {
         Review:
         <textarea
           placeholder="Leave your review here..."
-          className="review-input long-text"
+          className="review-input"
           value={review}
           onChange={(e) => setReview(e.target.value)}
         />
