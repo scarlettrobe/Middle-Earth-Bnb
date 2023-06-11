@@ -47,7 +47,8 @@ ul li img {
 
 }
 
-#username{
+
+.username{
   display: none;
 }
 .profile-dropdown a:hover{

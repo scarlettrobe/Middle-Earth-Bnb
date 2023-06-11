@@ -49,8 +49,9 @@ function ProfileButton({ user }) {
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <li>{user.username}</li>
-            <li id="username">{user.firstName} {user.lastName}</li>
+            <li className="username">{user.username}</li>
+            <li>Hello, {user.firstName}</li>
+            <li className="username">{user.lastName}</li>
             <li>{user.email}</li>
             <li>
               <NavLink to="/current">Manage Spots</NavLink>
@@ -60,7 +61,7 @@ function ProfileButton({ user }) {
             </li>
           </>
         ) : (
-          <>
+          <> 
             <OpenModalMenuItem
               itemText="Sign Up"
               onItemClick={closeMenu}
