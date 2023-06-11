@@ -111,53 +111,55 @@ router.post('/:reviewId/images', requireAuth, async (req, res, next) => {
     res.json({ id: newImage.id, url: newImage.url })
 })
 
-//edit a review
+// edit a review
 router.put('/:reviewId', requireAuth, validateReview, async (req, res, next) => {
-    let { user } = req;
-    let id = req.params.reviewId;
-    let { review, stars } = req.body
-    let reviewFound = await Review.findByPk(id)
-
-    if (!user.id === review.userId) {
-        return res.status(401).json({ "message": "You are not authorized." })
-    }
-
+    const { user } = req;
+    const { reviewId } = req.params;
+    const { review, stars } = req.body;
+  
+    const reviewFound = await Review.findByPk(reviewId);
+  
     if (!reviewFound) {
-        return res.status(404).json({
-            "message": "Review couldn't be found"
-        })
+      return res.status(404).json({
+        message: "Review couldn't be found",
+      });
     }
+  
+    if (user.id !== reviewFound.userId) {
+      return res.status(401).json({ message: 'You are not authorized.' });
+    }
+  
+    reviewFound.review = review;
+    reviewFound.stars = stars;
+  
+    await reviewFound.save();
+    res.json(reviewFound);
+  });
+  
 
-    reviewFound.review = review
-    reviewFound.stars = stars
 
-    await reviewFound.save()
-    res.json(reviewFound)
-
-})
-
-router.delete('/:reviewId', requireAuth, async (req, res) => {
-    let { user } = req
-    let id = req.params.reviewId;
-    let review = await Review.findByPk(id)
-
+  router.delete('/:reviewId', requireAuth, async (req, res) => {
+    const { user } = req;
+    const { reviewId } = req.params;
+    const review = await Review.findByPk(reviewId);
+  
     if (!review) {
-        res.status(404).json({
-            "message": "Review couldn't be found"
-        })
+      return res.status(404).json({
+        message: "Review couldn't be found",
+      });
     }
-
-    if (user.id === review.userId) {
-        await review.destroy()
-        res.json({
-            "message": "Successfully deleted"
-        })
+  
+    if (user.id !== review.userId) {
+      return res.status(404).json({
+        message: 'You are not authorized to delete this Review.',
+      });
     }
-    else {
-        return res.status(404).json({
-            "message": "You are not authorized to delete this booking."
-        })
-    }
-})
+  
+    await review.destroy();
+    res.json({
+      message: 'Successfully deleted',
+    });
+  });
+  
 
 module.exports = router;
