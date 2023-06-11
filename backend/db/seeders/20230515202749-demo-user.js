@@ -25,6 +25,13 @@ module.exports = {
         hashedPassword: bcrypt.hashSync('gandalfthewhite', 10)
       },
       {
+        firstName: 'Gollum',
+        lastName: '',
+        email: 'gollum@user.io',
+        username: 'wraith',
+        hashedPassword: bcrypt.hashSync('precious', 10)
+      },
+      {
         firstName: 'Frodo',
         lastName: 'Baggins',
         email: 'frodo@user.io',
@@ -122,41 +129,8 @@ module.exports = {
         username: 'kingofrohan',
         hashedPassword: bcrypt.hashSync('helmsdeep', 10)
       },
-      {
-        firstName: 'Gollum',
-        lastName: '',
-        email: 'gollum@user.io',
-        username: 'wraith',
-        hashedPassword: bcrypt.hashSync('precious', 10)
-      },
-      {
-        firstName: 'Merry',
-        lastName: 'Brandybuck',
-        email: 'merry@user.io',
-        username: 'bucklandhobbit',
-        hashedPassword: bcrypt.hashSync('pipeweed', 10)
-      },
-      {
-        firstName: 'Pippin',
-        lastName: 'Took',
-        email: 'pippin@user.io',
-        username: 'tookishobbit',
-        hashedPassword: bcrypt.hashSync('adventurer', 10)
-      },
-      {
-        firstName: 'Radagast',
-        lastName: 'the Brown',
-        email: 'radagast@user.io',
-        username: 'wizardofthewoods',
-        hashedPassword: bcrypt.hashSync('animals', 10)
-      },
-      {
-        firstName: 'Boromir',
-        lastName: 'Steward of Gondor',
-        email: 'boromir@user.io',
-        username: 'manofgondor',
-        hashedPassword: bcrypt.hashSync('lastmarch', 10)
-      }
+
+
     
     ], {});
     
@@ -166,7 +140,7 @@ module.exports = {
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, {
       username: {
-        [Op.in]: ['burglar', 'scarlettrobe', 'fableforge', 'Faramir', 'Treebeard', 'Eowyn', 'Theoden', 'Gollum', 'Merry', 'Pippin', 'Radagast', 'Boromir']
+        [Op.in]: ['burglar','Faramir', 'Treebeard', 'Eowyn', 'Theoden', 'Gollum', 'Merry', 'Pippin', 'Radagast', 'Boromir']
       }
     }, {});
   },

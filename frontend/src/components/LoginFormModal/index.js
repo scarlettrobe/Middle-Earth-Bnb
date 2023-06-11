@@ -24,6 +24,11 @@ function LoginFormModal() {
       });
   };
 
+  const handleLogin = () => {
+    dispatch(sessionActions.login({ credential: 'burglar', password: 'shire123' }));
+    window.location.reload(); // Manually trigger a page refresh
+  };
+
   return (
     <>
       <h1>Log In</h1>
@@ -50,7 +55,7 @@ function LoginFormModal() {
           <p>{errors.credential}</p>
         )}
         <button type="submit">Log In</button>
-        <button type="demouser" onClick={() => dispatch(sessionActions.login({ credential: "burglar", password: "shire123" }))}>Demo User</button>
+        <button type="button" onClick={handleLogin}>Demo User</button>
       </form>
     </>
   );
