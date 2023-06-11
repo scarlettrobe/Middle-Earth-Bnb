@@ -39,6 +39,7 @@ export const CurrentSpots = () => {
     return (
         <>
             <h2 className="manage-title">Manage Spots</h2>
+            <button className="create-spot-button" onClick={() => history.push('/spots/new')}>Create a New Spot</button>
             <div className='spots-body'>
                 {currentSpots.map((currentSpot) => (
                     <SpotDetails currentSpot={currentSpot} key={currentSpot.id} />

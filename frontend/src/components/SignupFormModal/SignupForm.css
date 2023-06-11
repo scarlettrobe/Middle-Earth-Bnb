@@ -1,0 +1,129 @@
+.signupBox {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  box-sizing: border-box;
+  align-items: center;
+  border-radius: 25px;
+}
+
+.signupForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 25px 25px 25px;
+  border-radius: 25px;
+}
+
+.signuplabel {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  font-family: 'Manjari', sans-serif;
+  color: #51636D;
+}
+
+#signupbutton {
+  height: 3rem;
+  background-color: #ff5a5f;
+  color: white;
+  box-shadow: 4px 3px 5px rgb(133, 117, 117);
+  font-family: 'Comfortaa', cursive;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.input-area {
+  background-color: white;
+  border-radius: 7px;
+  border: #51636d71 1px solid;
+  height: 25px;
+  font-size: 14px;
+  font-family: 'Manjari', sans-serif;
+  letter-spacing: 1.5px;
+}
+
+h1, h2 {
+  font-weight: bold;
+}
+
+.link {
+  margin-bottom: 0;
+}
+
+
+
+#modal-content{
+    position: absolute;
+    background-color: white;
+    border-radius: 20px;
+    width: 45rem;
+    height: 33rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+h1{
+    background-color: white;
+    
+    
+}
+
+label{
+    font-family: 'sans-serif';
+    display: flex;
+    flex-direction: column;
+}
+
+
+button {
+    height: 3rem;
+    width: 5rem;
+    background-color: #6d9d65; 
+    color: #ffd700; 
+    box-shadow: 4px 3px 5px rgb(0, 0, 0, 0.3);
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
+    margin-bottom: 2px;
+    margin-top: 5px;
+  }
+  
+  button:hover {
+    background-color: #99c47c; 
+  }
+  
+  button:active {
+    transform: translateY(1px); 
+  }
+  
+
+ input{
+    background-color: rgb(238, 254, 236);
+    height: 2rem;
+    width: 20rem;
+    border-radius: 10px;
+    border: 1px solid #516d6071;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding-left: 5px;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    box-shadow: 4px 3px 5px rgb(0, 0, 0, 0.3);
+ }

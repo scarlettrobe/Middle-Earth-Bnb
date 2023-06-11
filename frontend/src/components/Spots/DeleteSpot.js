@@ -1,6 +1,7 @@
 import { removeSpot, getCurrentUserSpots } from '../../store/spots';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
+import './DeleteSpot.css';
 
 export const DeleteSpot = ({ currentSpotId }) => {
     const dispatch = useDispatch();

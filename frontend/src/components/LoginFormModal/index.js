@@ -50,6 +50,7 @@ function LoginFormModal() {
           <p>{errors.credential}</p>
         )}
         <button type="submit">Log In</button>
+        <button type="demouser" onClick={() => dispatch(sessionActions.login({ credential: "burglar", password: "shire123" }))}>Demo User</button>
       </form>
     </>
   );

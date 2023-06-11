@@ -14,7 +14,7 @@ export const SpotDetails = ({ currentSpot }) => {
                     <div className='spot-image-box'>
                         <img src={currentSpot.previewImage} alt={currentSpot.name} />
                     </div>
-                    <div className='spot-details'>
+                    <div className='spot-details' >
                         <h2 className='spot-title'>{currentSpot.name}</h2>
                         <div className='location-rating'>
                             <p>{`${currentSpot.city}, ${currentSpot.state}`}</p>
@@ -24,7 +24,7 @@ export const SpotDetails = ({ currentSpot }) => {
                     </div>
                 </Link>
                 <Link to={`/spots/${currentSpot.id}/edit`}>
-                    <button className="small-button bright" type='button'>Update</button>
+                    <button className="small-button" type='button'>Update</button>
                 </Link>
                 <OpenModalButton
                     modalComponent={<DeleteSpot currentSpotId={currentSpot.id} />}
