@@ -12,6 +12,11 @@
 
 [airbnb-database-schema]: https://appacademy-open-assets.s3.us-west-1.amazonaws.com/Modular-Curriculum/content/week-12/airbnb-db-schema.png
 [airbnb-db-diagram-info]: https://appacademy-open-assets.s3.us-west-1.amazonaws.com/Modular-Curriculum/content/week-12/airbnb-db-diagram-info.txt
+
+
+![Landing-Page](<Screenshot 2023-06-12 075104.png>)
+
+![Spot-Details](<Screenshot 2023-06-12 075150.png>)
 <!--!!END -->
 <!--!!ADD -->
 <!-- `<insert database schema design here>` -->
