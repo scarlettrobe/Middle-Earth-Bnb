@@ -108,7 +108,7 @@ module.exports = {
       // Aragorn's Refuge
       {
         spotId: 9,
-        url: "https://cdn.discordapp.com/attachments/1079788020586254407/1117672897364901969/4c642579f800eb6b6fb9156bc277791a.png",
+        url: "https://cdn.discordapp.com/attachments/1079788020586254407/1117841003412471878/350.png",
         preview: true,
       },
 
