@@ -115,7 +115,7 @@ module.exports = {
         spotId: 9,
         url: "https://static.wikia.nocookie.net/lotr/images/7/70/Jerry_Vanderstelt_-_Rivendell.jpg/revision/latest/scale-to-width-down/700?cb=20180501204919",
         preview: true,
-      }
+      },
 
       // Aragorn's Royal Residence
       {
