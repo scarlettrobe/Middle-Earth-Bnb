@@ -1,7 +1,13 @@
-.create-spot-form{
+.create-spot-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 35rem;
+    border-top: 1px solid #000; /* Add a border on top of the form */
+}
+
+
+.error{
+    color: red;
 }

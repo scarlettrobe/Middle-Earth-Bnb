@@ -22,11 +22,11 @@ module.exports = {
     return queryInterface.bulkInsert(options, [
       {
         reviewId: 1, //  Alamo
-        url: 'https://independenttravelcats.com/wp-content/uploads/2019/01/unnamed-file.jpg',
+        url: '',
       },
       {
         reviewId: 3, //Bilbos Rivendale home
-        url: 'https://places.travel/wp-content/uploads/2020/06/Bubble-milky-way.jpg',
+        url: '',
       },
     ], {});
   },

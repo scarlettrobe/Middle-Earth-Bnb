@@ -8,91 +8,75 @@ if (process.env.NODE_ENV === 'production') {
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    options.tableName = 'Reviews'
-
+    options.tableName = 'Reviews';
 
     return queryInterface.bulkInsert(options, [
       {
-        "spotId": 1,
-        "userId": 1,
-        "review": "I had a wonderful time at Bilbo's Hobbit Hole! The food was delicious, the atmosphere was cozy, and the staff was friendly. I would definitely recommend this spot to anyone looking for a fun and relaxing experience.",
-        "stars": 5
+        spotId: 1,  // Bilbo's Hobbit Hole
+        userId: 2,  // Gandalf
+        review: 'What an enchanting place! Bilbo\'s Hobbit Hole is the perfect spot for a quiet retreat. The lush surroundings and cozy interior made me feel right at home. Highly recommended!',
+        stars: 5,
       },
-
-      // Bilbo's Rivendell Home - User 2
       {
-        "spotId": 2,
-        "userId": 2,
-        "review": "I had a magical time at Bilbo's Rivendell Home! The scenery was breathtaking, the food was delicious, and the staff was attentive. I would definitely recommend this spot to anyone looking for a romantic getaway.",
-        "stars": 5
+        spotId: 2,  // Bilbo's Rivendell Retreat
+        userId: 3,  // Gollum
+        review: 'My precious found this place delightful! Bilbo\'s Rivendell Retreat offers a serene escape from the troubles of Middle Earth. The elven architecture and soothing atmosphere made it a memorable experience.',
+        stars: 4,
       },
-
-      // Wizard Tower - User 3
       {
-        "spotId": 3,
-        "userId": 3,
-        "review": "I had a blast at the Wizard Tower! The fireworks were amazing, the stars were beautiful, and the staff was knowledgeable. I would definitely recommend this spot to anyone looking for a fun and educational experience.",
-        "stars": 5
+        spotId: 3,  // Bilbo's Mountain Estate
+        userId: 4,  // Frodo
+        review: 'Bilbo\'s Mountain Estate is truly a hidden gem! The breathtaking views of Erebor and the luxurious amenities provided an unforgettable stay. I would definitely visit again!',
+        stars: 5,
       },
-
-      // Merry's Buckland Home - User 1
       {
-        "spotId": 4,
-        "userId": 1,
-        "review": "I had a great time at Merry's Buckland Home! The food was delicious, the atmosphere was lively, and the staff was friendly. I would definitely recommend this spot to anyone looking for a fun and social experience.",
-        "stars": 4
+        spotId: 4,  // Gandalf's Wizards Tower
+        userId: 5,  // Samwise Gamgee
+        review: 'Gandalf\'s Wizards Tower is nothing short of magical! The ancient wisdom and mystical aura of the place transported me to another world. A must-visit for any fan of the arcane arts!',
+        stars: 5,
       },
-
-      // Pippin's Tookish Home - User 2
       {
-        "spotId": 5,
-        "userId": 2,
-        "review": "I had a wonderful time at Pippin's Tookish Home! The scenery was beautiful, the food was delicious, and the staff was attentive. I would definitely recommend this spot to anyone looking for a romantic getaway.",
-        "stars": 5
+        spotId: 5,  // Gandalf's Shire Residence
+        userId: 6,  // Aragorn
+        review: 'Gandalf\'s Shire Residence is a cozy haven in the heart of the Shire. The tranquil surroundings and warm hospitality provided a much-needed respite. I would gladly stay here again.',
+        stars: 4,
       },
-
-      // Radagast's Woodland Home - User 3
       {
-        "spotId": 6,
-        "userId": 3,
-        "review": "I had a blast at Radagast's Woodland Home! The animals were amazing, the stars were beautiful, and the staff was knowledgeable. I would definitely recommend this spot to anyone looking for a fun and educational experience.",
-        "stars": 5
+        spotId: 6,  // Gollum's Hidden Cave
+        userId: 7,  // Legolas
+        review: 'Gollum\'s Hidden Cave offers a unique experience for adventurous souls. The eerie ambiance and mysterious allure of the cave made it a thrilling stay. Not recommended for the faint of heart!',
+        stars: 3,
       },
-
-      // Boromir's Gondorian Home - User 1
       {
-        "spotId": 7,
-        "userId": 1,
-        "review": "I had a great time at Boromir's Gondorian Home! The food was delicious, the atmosphere was inspiring, and the staff was friendly. I would definitely recommend this spot to anyone looking for a fun and patriotic experience.",
-        "stars": 4
+        spotId: 7,  // Frodo's Residence
+        userId: 8,  // Gimli
+        review: 'Frodo\'s Residence is a charming hobbit hole with a touch of elegance. The cozy interiors and picturesque Shire views made it a delightful stay. I highly recommend it to fellow travelers.',
+        stars: 5,
       },
-
-      // Faramir's Ithilien Home - User 2
       {
-        "spotId": 8,
-        "userId": 2,
-        "review": "I had a wonderful time at Faramir's Ithilien Home! The scenery was beautiful, the food was delicious, and the staff was attentive. I would definitely recommend this spot to anyone looking for a romantic getaway.",
-        "stars": 5
+        spotId: 8,  // Samwise's Hobbit Home
+        userId: 9,  // Saruman
+        review: 'Samwise\'s Hobbit Home is a testament to the beauty of simplicity. The well-tended garden and homely atmosphere provided a peaceful escape. It was a delightful stay.',
+        stars: 4,
       },
-
-      // Gollum's Cave - User 3
       {
-        "spotId": 9,
-        "userId": 3,
-        "review": "I had a blast at Gollum's Cave! The fish was delicious, the atmosphere was creepy. I would definitely recommend this spot to anyone looking for a fun and unique experience.",
-        "stars": 3
+        spotId: 9,  // Aragorn's Refuge
+        userId: 10,  // Elrond
+        review: 'Aragorn\'s Refuge is a rustic retreat perfect for those seeking solace. The secluded location and natural surroundings offered a calming experience. I would gladly return for another stay.',
+        stars: 4,
+      },
+      {
+        spotId: 10,  // Aragorn's Royal Residence
+        userId: 11,  // Galadriel
+        review: 'Aragorn\'s Royal Residence is a majestic palace fit for a king. The grandeur of the architecture and the regal ambiance created an unforgettable experience. Highly recommended for luxury seekers.',
+        stars: 5,
       },
     ], {});
   },
 
   async down(queryInterface, Sequelize) {
-    options.tableName = 'Reviews'
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
-    return queryInterface.bulkDelete(options, null, {})
-  }
+    options.tableName = 'Reviews';
+
+    return queryInterface.bulkDelete(options, null, {});
+  },
 };

@@ -140,7 +140,7 @@ module.exports = {
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, {
       username: {
-        [Op.in]: ['burglar','Faramir', 'Treebeard', 'Eowyn', 'Theoden', 'Gollum', 'Merry', 'Pippin', 'Radagast', 'Boromir']
+        [Op.in]: ['burglar','Faramir', 'Treebeard', 'Eowyn', 'Theoden', 'Gollum', 'Merry', 'Pippin', 'Boromir']
       }
     }, {});
   },
