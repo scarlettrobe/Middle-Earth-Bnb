@@ -5,6 +5,9 @@
 <!-- # `<name of application here>` -->
 <!--!!END_ADD -->
 
+# Technologies
+MiddleEarthBNB is a web application created with React, Redux, CSS, Sequelize, and Express. It combines the power of React's component-based UI development, Redux for state management, CSS for designs, Sequelize for database interfaces, and Express for server-side functionality. With these technologies, MiddleEarthBNB provides an immersive and user-friendly experience for discovering and reserving accommodations in the world of Middle Earth.
+
 ## Database Schema Design
 
 <!--!!START SILENT -->
