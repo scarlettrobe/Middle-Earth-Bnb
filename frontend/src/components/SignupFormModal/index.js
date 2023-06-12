@@ -17,33 +17,56 @@ function SignupFormModal() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
-      setErrors({});
-      return dispatch(
-        sessionActions.signup({
-          email,
-          username,
-          firstName,
-          lastName,
-          password,
-        })
-      )
-        .then(closeModal)
-        .catch(async (res) => {
-          const data = await res.json();
-          if (data && data.errors) {
-            setErrors(data.errors);
-          }
-        });
+    
+    // validation
+    let errors = {};
+    if (!/.+@.+\..+/.test(email)) {
+      errors.email = "Invalid email format";
     }
-    return setErrors({
-      confirmPassword: "Confirm Password field must be the same as the Password field"
-    });
+    if (username.length < 4) {
+      errors.username = "Username must be at least 4 characters";
+    }
+    if (firstName === "") {
+      errors.firstName = "First Name is required";
+    }
+    if (lastName === "") {
+      errors.lastName = "Last Name is required";
+    }
+    if (password.length < 6) {
+      errors.password = "Password must be at least 6 characters";
+    }
+    if (password !== confirmPassword) {
+      errors.confirmPassword = "Confirm Password field must be the same as the Password field";
+    }
+  
+    if (Object.keys(errors).length > 0) {
+      setErrors(errors);
+      return;
+    }
+  
+    // dispatch
+    return dispatch(
+      sessionActions.signup({
+        email,
+        username,
+        firstName,
+        lastName,
+        password,
+      })
+    )
+      .then(closeModal)
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) {
+          setErrors(data.errors);
+        }
+      });
   };
 
   return (
     <>
-      <h1>Sign Up</h1>
+
+      <h1 >Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <label>
           Email
