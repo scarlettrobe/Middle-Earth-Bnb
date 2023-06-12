@@ -22,8 +22,8 @@ export const DeleteSpot = ({ currentSpotId }) => {
             <h2 className="delete-title">Confirm Delete</h2>
             <h3 className="delete-question">Are you sure you want to remove this spot from the listings?</h3>
             <div className="delete-buttons">
-                <button className="delete-yes-button" onClick={handleDelete}>Yes</button>
-                <button className="delete-no-button" onClick={closeModal}>No</button>
+                <button className="delete-yes" onClick={handleDelete}>Yes</button>
+                <button className="delete-no" onClick={closeModal}>No</button>
             </div>
         </div>
     );

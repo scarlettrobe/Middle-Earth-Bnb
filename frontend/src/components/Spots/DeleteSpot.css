@@ -10,12 +10,12 @@ align-items: center;
 justify-content: center;
 }
 
-.delete-yes-button{
+.delete-yes{
     width: 10rem;
 
 }
 
-.delete-no-button{
+.delete-no{
     width: 10rem;
     margin-top: 10px;
 }
