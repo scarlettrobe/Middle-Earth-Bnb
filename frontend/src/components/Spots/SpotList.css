@@ -1,5 +1,5 @@
 p {
-  font-family: 'Ringbearer', cursive;
+  font-family: 'cinzel', serif;
   color: #0C273D;
   font-size: 18px;
   padding-top: 5px;
@@ -29,7 +29,7 @@ p {
 }
 
 .loading {
-  font-family: 'Ringbearer', cursive;
+  font-family: 'cinzel', serif;
   color: #0C273D;
   font-size: 18px;
 }
@@ -91,7 +91,7 @@ p {
   background-color: #9D332F;
   color: white;
   box-shadow: 4px 3px 5px rgb(133, 117, 117);
-  font-family: 'Elven', cursive;
+  font-family: 'cinzel', serif;
   font-size: 16px;
   font-weight: bold;
   border-radius: 15px;
@@ -151,4 +151,3 @@ p {
 width: 10rem;
 height: 3.5rem;
 }
-

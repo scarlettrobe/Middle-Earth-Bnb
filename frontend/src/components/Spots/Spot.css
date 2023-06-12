@@ -3,7 +3,7 @@
     width: 362.67px;
     height: 500px;
     border-radius: 25px;
-    font-family: 'Cinzel Decorative', sans-serif;
+    font-family: 'cinzel decorative', cursive;
     color: #0C273D;
     margin-bottom: 3rem;
 }
@@ -35,7 +35,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    font-family: 'Cinzel Decorative', sans-serif;
+    font-family: 'cinzel', serif;
     color: rgb(12, 39, 61);
     text-decoration: none;
 }
