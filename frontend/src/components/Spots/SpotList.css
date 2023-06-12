@@ -3,7 +3,9 @@ p {
   color: #0C273D;
   font-size: 18px;
   padding-top: 5px;
+  white-space: nowrap;
 }
+
 
 #image {
   width: 50%;

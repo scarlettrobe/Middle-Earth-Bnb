@@ -18,7 +18,7 @@ export const SpotDetails = ({ currentSpot }) => {
                         <h2 className='spot-title'>{currentSpot.name}</h2>
                         <div className='location-rating'>
                             <p>{`${currentSpot.city}, ${currentSpot.state}`}</p>
-                            <p> <i className="fa-solid fa-heart"></i> {`${currentSpot.avgRating ? currentSpot.avgRating.toFixed(2) : "New"}`}</p>
+                            <p> <i className="fa-solid fa-heart"></i> {`${currentSpot.avgRating ? currentSpot.avgRating.toFixed(1) : "New"}`}</p>
                         </div>
                         <p className='spot-price'>{`$${currentSpot.price} per night`}</p>
                     </div>

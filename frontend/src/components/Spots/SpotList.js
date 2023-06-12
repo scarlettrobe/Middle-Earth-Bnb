@@ -40,7 +40,7 @@ export const SpotList = () => {
   }
 
   const reviewArray = review ? Object.values(review) : [];
-  const avgStarRating = spot?.avgStarRating || 0;
+  const avgStarRating = spot?.avgStarRating.toFixed(1) || "0.0";
 
   let userOwnsSpot = user && spot && spot.Owner.id === user.id; // Assuming user.id and spot.Owner.id exist
   let userHasReviewed = reviewArray.some(r => r.userId === user?.id); // Assuming review.userId exists
@@ -51,7 +51,7 @@ export const SpotList = () => {
 
   const noReviewsYet = spot.numReviews === 0;
 
-  const newSpotText = noReviewsYet ? "New" : `${avgStarRating.toFixed(2)} -`;
+  const newSpotText = noReviewsYet ? "New" : `${avgStarRating.toFixed(1)} -`;
 
   const beFirstToPostReviewText = noReviewsYet && user && !userOwnsSpot ? "Be the first to post a review!" : null;
 
