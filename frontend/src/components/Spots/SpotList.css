@@ -3,7 +3,8 @@ p {
   color: #0C273D;
   font-size: 18px;
   padding-top: 5px;
-  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -147,6 +148,7 @@ p {
 
 .reviews {
   margin-bottom: 20px;
+
 }
 
 .review-button{
