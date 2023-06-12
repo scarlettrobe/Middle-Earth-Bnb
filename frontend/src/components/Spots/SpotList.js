@@ -51,7 +51,7 @@ export const SpotList = () => {
 
   const noReviewsYet = spot.numReviews === 0;
 
-  const newSpotText = noReviewsYet ? "New" : `${avgStarRating.toFixed(1)} -`;
+  const newSpotText = noReviewsYet ? "New" : `${avgStarRating} -`;
 
   const beFirstToPostReviewText = noReviewsYet && user && !userOwnsSpot ? "Be the first to post a review!" : null;
 
