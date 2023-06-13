@@ -40,7 +40,7 @@ export const SpotList = () => {
   }
 
   const reviewArray = review ? Object.values(review) : [];
-  const avgStarRating = spot?.avgStarRating?.toFixed(1) || "0.0";
+const avgStarRating = spot?.avgStarRating?.toFixed(1) || "0.0";
 
   let userOwnsSpot = user && spot && spot.Owner.id === user.id; // Assuming user.id and spot.Owner.id exist
   let userHasReviewed = reviewArray.some(r => r.userId === user?.id); // Assuming review.userId exists

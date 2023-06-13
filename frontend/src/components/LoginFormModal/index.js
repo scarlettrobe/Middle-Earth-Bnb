@@ -23,11 +23,20 @@ function LoginFormModal() {
         }
       });
   };
-
-  const handleLogin = () => {
-    dispatch(sessionActions.login({ credential: 'burglar', password: 'shire123' }));
-    window.location.reload(); // Manually trigger a page refresh
+  
+  const DemoLogin = () => {
+    dispatch(sessionActions.login({ credential: 'burglar', password: 'shire123' }))
+      .then(() => {
+        closeModal(); // Close the modal after successful login
+      })
+      .catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) {
+          setErrors(data.errors);
+        }
+      });
   };
+  
 
   return (
     <>
@@ -56,7 +65,7 @@ function LoginFormModal() {
         </label>
 
         <button type="submit">Log In</button>
-        <button type="button" onClick={handleLogin}>Demo User</button>
+        <button type="button" onClick={DemoLogin}>Demo User</button>
       </form>
     </>
   );
